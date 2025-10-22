@@ -64,8 +64,8 @@ bool full(stack *s) {
  */
 void init_queue(queue *q) {
     /* TODO: initialize queue */
-    initalize (&q-> s1);
-    initalize (&q-> s2);
+    initialize (&q-> s1);
+    initialize (&q-> s2);
 }
 
 /* 
