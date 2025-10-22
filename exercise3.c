@@ -53,17 +53,22 @@ void enqueue(queue *q, int x) {
  * Post-condition: front item is removed and returned
  */
 int dequeue(queue *q) {
-    /* TODO: Implement dequeue */
-    assert (!empty(q));
-    node *temp = q-> front;
-    int d = temp -> data;
-    q-> front = q-> front -> next;
-    if (!q-> front) {
-        q-> rear = NULL;
+    assert(!empty(q));
+    
+    node *temp = q->front;
+    int data = temp->data;
+    
+    q->front = q->front->next;
+    
+    // If queue becomes empty, update rear
+    if (q->front == NULL) {
+        q->rear = NULL;
     }
-    free (temp);
-    q-> count--;
-    return 0;  
+    
+    free(temp);
+    q->count--;
+    
+    return data;
 }
 
 /* 
