@@ -16,7 +16,8 @@
  */
 void initialize(queue *q) {
     /* TODO: Initialize the queue */
-     q-> front = q-> rear = NULL;
+     q-> front = NULL;
+     q-> rear  = NULL;
      q-> count = 0;
 }
 
@@ -30,16 +31,17 @@ void initialize(queue *q) {
  */
 void enqueue(queue *q, int x) {
     /* TODO: Implement enqueue */
-   node *n = (node *)malloc(sizeof(node));
+   node *n = (node*)malloc(sizeof(node));
    assert (n);
    n -> data = x;
    n -> next = NULL;
-         if (q -> rear != NULL) {
-              q -> rear -> next = n;
+         if (q -> rear == NULL) {
+                q->front = n;
+                q->rear  = n;
          } else {
-              q -> front = n;
+              q -> rear -> next = n;
+              q -> rear = n;
          }
-         q -> rear = n;
          q -> count++;
 }
 
