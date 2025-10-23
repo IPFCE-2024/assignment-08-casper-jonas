@@ -34,7 +34,7 @@ node* isort(node* list) {
         else {
             node * search = sorteret;
             while (search -> next != NULL && search -> next -> data < current -> data){
-                 search = current -> next;
+                 search = search -> next;
                  }
         current -> next = search -> next;
         search -> next = current;
@@ -43,6 +43,7 @@ node* isort(node* list) {
     current = next;
     }
     return sorteret;
+}
 
 /* Helper function to print the list */
 void print_list(node* list) {
