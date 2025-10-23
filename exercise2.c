@@ -21,7 +21,6 @@ node* isort(node* list) {
     if(list == NULL || list-> next == NULL){
         return list;
     }
-    return NULL; // Placeholder implementation
     node * sorteret = NULL;
     node * current = list;
 
@@ -34,14 +33,16 @@ node* isort(node* list) {
         } 
         else {
             node * search = sorteret;
-            while (search -> next != NULL && search -> next -> data < current -> data)
-            search = current -> next;
-        }
-        current = next;
+            while (search -> next != NULL && search -> next -> data < current -> data){
+                 search = current -> next;
+                 }
+        current -> next = search -> next;
+        search -> next = current;
         
+     }
+    current = next;
     }
     return sorteret;
-}
 
 /* Helper function to print the list */
 void print_list(node* list) {
