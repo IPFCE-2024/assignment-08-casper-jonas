@@ -18,7 +18,29 @@
  * Returns pointer to the new head of the sorted list.
  */
 node* isort(node* list) {
+    if(list == NULL || list-> next == NULL){
+        return list;
+    }
     return NULL; // Placeholder implementation
+    node * sorteret = NULL;
+    node * current = list;
+
+    while(current !=NULL){
+        node * next = current -> next;
+
+        if (sorteret == NULL || current -> data < sorteret -> data) {
+            current -> next = sorteret;
+            sorteret = current;
+        } 
+        else {
+            node * search = sorteret;
+            while (search -> next != NULL && search -> next -> data < current -> data)
+            search = current -> next;
+        }
+        current = next;
+        
+    }
+    return sorteret;
 }
 
 /* Helper function to print the list */
